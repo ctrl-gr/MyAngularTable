@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td *ngFor="let header of tableConfig.headers">
+      {{header.label}}
+    </td>
+  </tr>
+  <tr *ngFor="let index of data; index as i">
+    <td>{{data[i].name}}</td>
+    <td>{{data[i].surname}}</td>
+    <td>{{data[i].email}}</td>
+  </tr>
+</table>
+<!-- TODO dati correttamente in display. solo html no angular material-->
