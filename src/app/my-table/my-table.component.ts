@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MyOrder, MyTableConfig} from "./my-table-config";
 import * as _ from "lodash";
 
+
 @Component({
   selector: 'app-my-table',
   templateUrl: './my-table.component.html',
@@ -14,17 +15,14 @@ export class MyTableComponent implements OnInit {
   @Input() data!: any;
   @Input() order !: MyOrder;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
     console.log(this.tableConfig, this.data, this.order)
+    this.data = _.orderBy(this.data, [this.order.defaultColumn])
+
+
   }
 
-  sortUp() {
-    this.data = _.orderBy(this.data,['name'], ['asc'])
-  }
-
-  sortDown() {
-    this.data = _.orderBy(this.data, ['name'], ['desc'])
-  }
 }

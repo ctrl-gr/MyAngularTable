@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     this.order = {
       defaultColumn: 'name',
       orderType: 'asc'
-    },
+    }
 
       this.table = {
         headers: [

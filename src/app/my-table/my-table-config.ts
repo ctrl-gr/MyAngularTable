@@ -9,7 +9,7 @@ export interface MyTableConfig {
 }
 
 export interface MyOrder {
-  defaultColumn: string; // column we need to order?
-  orderType: string; //orderType like asc and desc
+  defaultColumn: string;
+  orderType: string;
 }
 
