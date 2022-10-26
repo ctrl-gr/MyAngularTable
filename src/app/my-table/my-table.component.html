@@ -1,13 +1,19 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <table>
   <tr>
     <td *ngFor="let header of tableConfig.headers">
       {{header.label}}
+      <button>
+        <mat-icon (click)="sortUp()">arrow_upward</mat-icon>
+      </button>
+      <button>
+        <mat-icon (click)="sortDown()">arrow_downward</mat-icon>
+      </button>
     </td>
   </tr>
-  <tr *ngFor="let index of data; index as i">
-    <td>{{data[i].name}}</td>
-    <td>{{data[i].surname}}</td>
-    <td>{{data[i].email}}</td>
+  <tr *ngFor="let dataRow of data">
+    <td *ngFor="let header of tableConfig.headers">
+      {{dataRow[header.key]}}
+    </td>
   </tr>
 </table>
-<!-- TODO dati correttamente in display. solo html no angular material-->

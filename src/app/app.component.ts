@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
-import {MyTableConfig} from "./my-table/my-table-config";
+import {MyOrder, MyTableConfig} from "./my-table/my-table-config";
 
 
 @Component({
@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   config !: MyButtonConfig;
   table !: MyTableConfig;
   data !: any[];
+  order !: MyOrder;
 
 
   ngOnInit(): void {
@@ -20,25 +21,29 @@ export class AppComponent implements OnInit {
       text: 'giulia',
       icon: 'home'
     }
+    this.order = {
+      defaultColumn: 'name',
+      orderType: 'asc'
+    },
 
-    this.table = {
-      headers : [
-        {
-        key: 'name',
-        label: 'nome',
-      },
-        {
-          key: 'surname',
-          label: 'cognome',
-        },
+      this.table = {
+        headers: [
+          {
+            key: 'name',
+            label: 'nome',
+          },
+          {
+            key: 'surname',
+            label: 'cognome',
+          },
+          {
+            key: 'email',
+            label: 'mail',
+          },
 
-        {
-          key: 'email',
-          label: 'mail',
-        }
-
-      ]
-    }
+        ],
+        order: this.order
+      }
 
     this.data = [{
       name: 'mario',
@@ -46,15 +51,17 @@ export class AppComponent implements OnInit {
       email: 'ciao@ciao.it'
     },
       {
-      name: 'luigi',
+        name: 'luigi',
         surname: 'bros',
         email: 'luigi@ciao.it'
-    },
+      },
       {
         name: 'peach',
         surname: 'bros',
         email: 'peach@ciao.it'
       }
     ]
+
   }
+
 }

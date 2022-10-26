@@ -5,5 +5,11 @@ export interface MyHeaders {
 
 export interface MyTableConfig {
   headers: MyHeaders[];
+  order: MyOrder;
+}
+
+export interface MyOrder {
+  defaultColumn: string; // column we need to order?
+  orderType: string; //orderType like asc and desc
 }
 
