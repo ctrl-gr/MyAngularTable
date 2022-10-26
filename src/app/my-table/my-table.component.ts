@@ -21,7 +21,7 @@ export class MyTableComponent implements OnInit {
   }
 
   sortUp() {
-    this.data = _.orderBy(this.data,['name'], ['asc']);
+    this.data = _.orderBy(this.data,['name'], ['asc'])
   }
 
   sortDown() {

@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
       text: 'giulia',
       icon: 'home'
     }
+
     this.order = {
       defaultColumn: 'name',
       orderType: 'asc'
