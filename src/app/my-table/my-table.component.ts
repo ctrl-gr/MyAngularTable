@@ -22,7 +22,6 @@ export class MyTableComponent implements OnInit {
     console.log(this.tableConfig, this.data, this.order)
     this.data = _.orderBy(this.data, [this.order.defaultColumn])
 
-
   }
 
 }

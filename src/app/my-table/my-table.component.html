@@ -3,11 +3,11 @@
   <tr>
     <td *ngFor="let header of tableConfig.headers">
       {{header.label}}
-      <button>
-        <mat-icon>arrow_upward</mat-icon>
-      </button>
-      <button>
+      <button *ngIf="order.orderType== 'asc'" (click)="order.orderType"> <!-- should send desc string to order in desc -->
         <mat-icon>arrow_downward</mat-icon>
+      </button>
+      <button *ngIf="order.orderType== 'desc'" (click)="order.orderType"> <!-- opposite -->
+        <mat-icon>arrow_upward</mat-icon>
       </button>
     </td>
   </tr>
