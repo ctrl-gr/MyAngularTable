@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
-import {MyOrder, MyTableConfig} from "./my-table/my-table-config";
+import {MyOrder, MySearch, MyTableConfig} from "./my-table/my-table-config";
 
 
 @Component({
@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   table !: MyTableConfig;
   data !: any[];
   order !: MyOrder;
+  search !: MySearch;
 
 
   ngOnInit(): void {
@@ -43,7 +44,8 @@ export class AppComponent implements OnInit {
           },
 
         ],
-        order: this.order
+        order: this.order,
+        search: this.search
       }
 
     this.data = [{

@@ -1,17 +1,24 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<select name="labels">
+  <option *ngFor="let header of tableConfig.headers">
+    {{header.label}}
+  </option>
+</select>
+<input type="text" placeholder="Enter text to search" [(ngModel)]="text">
+<br/> <br/>
 <table>
   <tr>
     <td *ngFor="let header of tableConfig.headers">
       {{header.label}}
-      <button *ngIf="order.orderType== 'asc'" (click)="order.orderType"> <!-- should send desc string to order in desc -->
-        <mat-icon>arrow_downward</mat-icon>
-      </button>
-      <button *ngIf="order.orderType== 'desc'" (click)="order.orderType"> <!-- opposite -->
+      <button *ngIf="order.orderType === 'desc'" (click)="sort(header.key, 'asc')">
         <mat-icon>arrow_upward</mat-icon>
+      </button>
+      <button *ngIf="order.orderType === 'asc'" (click)="sort(header.key, 'desc')"> <!-- opposite -->
+        <mat-icon>arrow_downward</mat-icon>
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of data">
+  <tr *ngFor="let dataRow of data"> <!-- pipe to display my filtered results? -->
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
     </td>
