@@ -9,6 +9,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { MyTableComponent } from './my-table/my-table.component';
 import {FormsModule} from "@angular/forms";
 import { SearchFilterPipe } from './search-filter.pipe';
+import { PaginationPipe } from './pagination.pipe';
 
 
 
@@ -19,6 +20,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
     MyButtonComponent,
     MyTableComponent,
     SearchFilterPipe,
+    PaginationPipe,
   ],
   imports: [
     BrowserModule,

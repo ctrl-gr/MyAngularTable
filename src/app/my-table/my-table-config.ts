@@ -7,6 +7,7 @@ export interface MyTableConfig {
   headers: MyHeaders[];
   order: MyOrder;
   search: MySearch;
+  pagination: MyPagination;
 }
 
 export interface MyOrder {
@@ -16,5 +17,10 @@ export interface MyOrder {
 
 export interface MySearch {
   columns: string[];
+}
+
+export interface MyPagination {
+  itemPerPage: number;
+  itemPerPageOptions: number[];
 }
 

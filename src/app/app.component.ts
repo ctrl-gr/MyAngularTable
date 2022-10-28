@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
-import {MyOrder, MySearch, MyTableConfig} from "./my-table/my-table-config";
+import {MyOrder, MyPagination, MySearch, MyTableConfig} from "./my-table/my-table-config";
 
 
 @Component({
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   data !: any[];
   order !: MyOrder;
   search !: MySearch;
+  pagination !: MyPagination;
 
 
   ngOnInit(): void {
@@ -45,7 +46,8 @@ export class AppComponent implements OnInit {
 
         ],
         order: this.order,
-        search: this.search
+        search: this.search,
+        pagination: this.pagination
       }
 
     this.data = [{
@@ -62,8 +64,37 @@ export class AppComponent implements OnInit {
         name: 'peach',
         surname: 'bros',
         email: 'peach@ciao.it'
+      },
+      {
+        name: 'waluigi',
+        surname: 'bros',
+        email: 'waluigi@nociao.it'
+      },
+      {
+        name: 'browser',
+        surname: 'bros',
+        email: 'browser@acer.it'
+      },
+      {
+        name: 'zlatan',
+        surname: 'ibrahimovic',
+        email: 'zlatan@zlatan.it'
+      },
+      {
+        name: 'prova',
+        surname: 'prova',
+        email: 'prova@microonde.it'
+      },
+      {
+        name: 'computer',
+        surname: 'bottiglia',
+        email: 'airpods@tissue.it'
       }
     ]
+
+    this.search = {
+      columns: this.data
+    }
 
   }
 

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MyOrder, MySearch, MyTableConfig} from "./my-table-config";
+import {MyOrder, MyPagination, MySearch, MyTableConfig} from "./my-table-config";
 import * as _ from "lodash";
 
 
@@ -15,14 +15,16 @@ export class MyTableComponent implements OnInit {
   @Input() data!: any;
   @Input() order !: MyOrder;
   @Input() search !: MySearch;
+  @Input() pagination !: MyPagination;
   searchTerm = ''
   selected = '';
+
 
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.tableConfig, this.data, this.order, this.search)
+    console.log(this.tableConfig, this.data, this.order, this.search) // why search is still undefined?
     this.data = _.orderBy(this.data, [this.order.defaultColumn])
 
   }

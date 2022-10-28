@@ -20,7 +20,7 @@
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of data | searchFilter : selected : searchTerm;">
+  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :3: 1 )"> <!-- dropdown menu -->
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
     </td>
