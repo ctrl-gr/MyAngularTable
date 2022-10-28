@@ -1,10 +1,12 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<select name="labels">
-  <option *ngFor="let header of tableConfig.headers">
+<select id="selectLabels" [(ngModel)]="selected">
+  <ng-container *ngFor="let header of tableConfig.headers">
+  <option value="{{header.key}}" >
     {{header.label}}
   </option>
+  </ng-container>
 </select>
-<input type="text" placeholder="Enter text to search" [(ngModel)]="text">
+<input class="searchTerm" type="text" name="searchTerm" placeholder="Enter text to search" [(ngModel)]="searchTerm" />
 <br/> <br/>
 <table>
   <tr>
@@ -13,12 +15,12 @@
       <button *ngIf="order.orderType === 'desc'" (click)="sort(header.key, 'asc')">
         <mat-icon>arrow_upward</mat-icon>
       </button>
-      <button *ngIf="order.orderType === 'asc'" (click)="sort(header.key, 'desc')"> <!-- opposite -->
+      <button *ngIf="order.orderType === 'asc'" (click)="sort(header.key, 'desc')">
         <mat-icon>arrow_downward</mat-icon>
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of data"> <!-- pipe to display my filtered results? -->
+  <tr *ngFor="let dataRow of data | searchFilter : selected : searchTerm;">
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
     </td>

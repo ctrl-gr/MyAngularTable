@@ -15,7 +15,8 @@ export class MyTableComponent implements OnInit {
   @Input() data!: any;
   @Input() order !: MyOrder;
   @Input() search !: MySearch;
-
+  searchTerm = ''
+  selected = '';
 
   constructor() {
   }
@@ -23,6 +24,7 @@ export class MyTableComponent implements OnInit {
   ngOnInit() {
     console.log(this.tableConfig, this.data, this.order, this.search)
     this.data = _.orderBy(this.data, [this.order.defaultColumn])
+
   }
 
   sort(key : string, orderType : any) {
@@ -31,10 +33,5 @@ export class MyTableComponent implements OnInit {
     console.log('Order changed', this.data)
   }
 
-  find(key : string, text : string){ //takes in input what I chose on select and the text I wrote in the search bar and gives me back the filtered result based on what I was looking for.
-    this.data = _.filter(this.tableConfig.headers, text) // filter text in my array of key (alias my columns)
-    console.log('Found element')
-
-  }
 
 }
