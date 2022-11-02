@@ -23,7 +23,10 @@ export class AppComponent implements OnInit {
       text: 'giulia',
       icon: 'home'
     }
-
+  this.pagination = {
+      itemPerPage: 5,
+    itemPerPageOptions: [5,10,15]
+  }
     this.order = {
       defaultColumn: 'name',
       orderType: 'asc'

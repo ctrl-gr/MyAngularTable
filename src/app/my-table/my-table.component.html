@@ -12,17 +12,20 @@
   <tr>
     <td *ngFor="let header of tableConfig.headers">
       {{header.label}}
-      <button *ngIf="order.orderType === 'desc'" (click)="sort(header.key, 'asc')">
+      <button *ngIf="tableConfig.order.orderType === 'desc'" (click)="sort(header.key, 'asc')">
         <mat-icon>arrow_upward</mat-icon>
       </button>
-      <button *ngIf="order.orderType === 'asc'" (click)="sort(header.key, 'desc')">
+      <button *ngIf="tableConfig.order.orderType === 'asc'" (click)="sort(header.key, 'desc')">
         <mat-icon>arrow_downward</mat-icon>
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :3: 1 )"> <!-- dropdown menu -->
-    <td *ngFor="let header of tableConfig.headers">
+  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :tableConfig.pagination.itemPerPage: 0 )">
+    <td *ngFor="let header of tableConfig.headers"> <!-- button with click event to change page (previous or current) -->
       {{dataRow[header.key]}}
     </td>
   </tr>
 </table>
+<select name= "itemsPerPageOptions" (change)="changePageOptions($event)" >
+  <option *ngFor="let option of tableConfig.pagination.itemPerPageOptions" value="{{option}}">{{option}}</option>
+</select>

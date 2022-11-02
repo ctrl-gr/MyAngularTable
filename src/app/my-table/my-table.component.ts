@@ -13,9 +13,7 @@ export class MyTableComponent implements OnInit {
 
   @Input() tableConfig!: MyTableConfig;
   @Input() data!: any;
-  @Input() order !: MyOrder;
-  @Input() search !: MySearch;
-  @Input() pagination !: MyPagination;
+
   searchTerm = ''
   selected = '';
 
@@ -24,16 +22,22 @@ export class MyTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.tableConfig, this.data, this.order, this.search) // why search is still undefined?
-    this.data = _.orderBy(this.data, [this.order.defaultColumn])
+    console.log(this.tableConfig, this.data, this.tableConfig.order, this.tableConfig.search)
+    this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn])
 
   }
 
   sort(key : string, orderType : any) {
     this.data = _.orderBy(this.data, [key], [orderType])
-    this.order.orderType = orderType
+    this.tableConfig.order.orderType = orderType
     console.log('Order changed', this.data)
   }
 
 
+  changePageOptions($event: any) {
+    console.log($event)
+    this.tableConfig.pagination.itemPerPage = +$event.target.value;
+    console.log(this.tableConfig.pagination)
+
+  }
 }
