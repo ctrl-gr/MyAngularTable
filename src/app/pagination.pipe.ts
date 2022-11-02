@@ -11,3 +11,4 @@ export class PaginationPipe implements PipeTransform {
     return [ ...items.slice( itemsPerPage*(page) , itemsPerPage*(page+1)  )]
   }
 }
+

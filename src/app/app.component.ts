@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
-import {MyOrder, MyPagination, MySearch, MyTableConfig} from "./my-table/my-table-config";
+import {MyOrder, MyPagination, MySearch, MyTableActionEnum, MyTableConfig} from "./my-table/my-table-config";
 
 
 @Component({
@@ -15,9 +15,10 @@ export class AppComponent implements OnInit {
   order !: MyOrder;
   search !: MySearch;
   pagination !: MyPagination;
+  actions !: MyTableActionEnum;
 
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.config = {
       customCssClass: 'btn btn-primary',
       text: 'giulia',
@@ -46,11 +47,15 @@ export class AppComponent implements OnInit {
             key: 'email',
             label: 'mail',
           },
-
+          {
+            key: 'actions',
+            label: 'azioni',
+          }
         ],
         order: this.order,
         search: this.search,
-        pagination: this.pagination
+        pagination: this.pagination,
+        actions: this.actions
       }
 
     this.data = [{
@@ -99,6 +104,12 @@ export class AppComponent implements OnInit {
       columns: this.data
     }
 
+    this.actions = {
+      actions: ['edit', 'delete']
+    }
+
+    }
+
   }
 
-}
+

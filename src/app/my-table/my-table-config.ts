@@ -8,6 +8,7 @@ export interface MyTableConfig {
   order: MyOrder;
   search: MySearch;
   pagination: MyPagination;
+  actions: MyTableActionEnum
 }
 
 export interface MyOrder {
@@ -22,5 +23,9 @@ export interface MySearch {
 export interface MyPagination {
   itemPerPage: number;
   itemPerPageOptions: number[];
+}
+
+export interface MyTableActionEnum {
+  actions: string[];
 }
 

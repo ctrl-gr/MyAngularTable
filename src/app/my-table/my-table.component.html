@@ -20,12 +20,25 @@
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :tableConfig.pagination.itemPerPage: 0 )">
-    <td *ngFor="let header of tableConfig.headers"> <!-- button with click event to change page (previous or current) -->
+  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :tableConfig.pagination.itemPerPage: pageIndex )">
+    <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
+      <button *ngIf="header.key === 'actions'">
+        <mat-icon>edit</mat-icon>
+      </button>
+        <button *ngIf="header.key === 'actions'">
+        <mat-icon>delete</mat-icon>
+      </button>
     </td>
   </tr>
 </table>
 <select name= "itemsPerPageOptions" (change)="changePageOptions($event)" >
   <option *ngFor="let option of tableConfig.pagination.itemPerPageOptions" value="{{option}}">{{option}}</option>
 </select>
+<button *ngIf="pageIndex > 0" (click)="pageNavigation('previous')">
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<button *ngIf="pageIndex+1 < totalPages" (click)="pageNavigation('next')">
+  <mat-icon>arrow_forward</mat-icon>
+</button>
+
