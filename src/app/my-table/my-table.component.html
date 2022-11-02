@@ -23,10 +23,10 @@
   <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :tableConfig.pagination.itemPerPage: pageIndex )">
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
-      <button *ngIf="header.key === 'actions'">
+      <button *ngIf="header.key === 'actions'" (click)="edit(dataRow)">
         <mat-icon>edit</mat-icon>
       </button>
-        <button *ngIf="header.key === 'actions'">
+        <button *ngIf="header.key === 'actions'" (click)="delete(dataRow)">
         <mat-icon>delete</mat-icon>
       </button>
     </td>

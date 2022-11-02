@@ -58,4 +58,13 @@ export class MyTableComponent implements OnInit {
       }
     }
   }
+
+  edit(element: any) {
+    // and?
+  }
+
+  delete(element: any) {
+    this.data = this.data.filter((i: any) => i !== element)
+    //TODO persistence? after delete?
+  }
 }

@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   order !: MyOrder;
   search !: MySearch;
   pagination !: MyPagination;
-  actions !: MyTableActionEnum;
+  actions !: MyTableActionEnum[];
 
 
   ngOnInit() {
@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
     }
 
     this.actions = {
-      actions: ['edit', 'delete']
+      // TODO what should I place here?
     }
 
     }
