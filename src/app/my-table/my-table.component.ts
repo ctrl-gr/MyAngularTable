@@ -24,7 +24,7 @@ export class MyTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.tableConfig, this.data, this.tableConfig.order, this.tableConfig.search)
+    console.log(this.tableConfig, this.data, this.tableConfig.order, this.tableConfig.search, this.tableConfig.actions)
     this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn])
     this.totalPages = Math.ceil(this.data.length / this.tableConfig.pagination.itemPerPage)
 
@@ -65,6 +65,6 @@ export class MyTableComponent implements OnInit {
 
   delete(element: any) {
     this.data = this.data.filter((i: any) => i !== element)
-    //TODO persistence? after delete?
+    //this works. But no persistence
   }
 }

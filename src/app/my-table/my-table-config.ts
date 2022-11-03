@@ -12,20 +12,21 @@ export interface MyTableConfig {
 }
 
 export interface MyOrder {
-  defaultColumn: string;
-  orderType: string;
+  defaultColumn: string
+  orderType: string
 }
 
 export interface MySearch {
-  columns: string[];
+  columns: string[]
 }
 
 export interface MyPagination {
-  itemPerPage: number;
-  itemPerPageOptions: number[];
+  itemPerPage: number
+  itemPerPageOptions: number[]
 }
 
 export enum MyTableActionEnum {
-   EDIT, DELETE
+   EDIT = 'edit',
+   DELETE = 'delete'
 }
 

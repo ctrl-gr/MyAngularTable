@@ -20,15 +20,10 @@
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination :tableConfig.pagination.itemPerPage: pageIndex )">
+  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination : tableConfig.pagination.itemPerPage: pageIndex )">
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
-      <button *ngIf="header.key === 'actions'" (click)="edit(dataRow)">
-        <mat-icon>edit</mat-icon>
-      </button>
-        <button *ngIf="header.key === 'actions'" (click)="delete(dataRow)">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <!-- when I have tableConfig.actions available, display my actions in every row as a button that I will click on to perform the action required -->
     </td>
   </tr>
 </table>
