@@ -62,49 +62,49 @@ export class AppComponent implements OnInit {
       name: 'mario',
       surname: 'bros',
       email: 'ciao@ciao.it',
-      actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
     },
       {
         name: 'luigi',
         surname: 'bros',
         email: 'luigi@ciao.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'peach',
         surname: 'bros',
         email: 'peach@ciao.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'waluigi',
         surname: 'bros',
         email: 'waluigi@nociao.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'browser',
         surname: 'bros',
         email: 'browser@acer.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'zlatan',
         surname: 'ibrahimovic',
         email: 'zlatan@zlatan.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'prova',
         surname: 'prova',
         email: 'prova@microonde.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       },
       {
         name: 'computer',
         surname: 'bottiglia',
         email: 'airpods@tissue.it',
-        actions: [MyTableActionEnum.EDIT, MyTableActionEnum.DELETE]
+
       }
     ]
 

@@ -25,6 +25,9 @@
       {{dataRow[header.key]}}
       <!-- when I have tableConfig.actions available, display my actions in every row as a button that I will click on to perform the action required -->
     </td>
+    <td *ngFor="let action of tableConfig.actions" >
+      {{action}}
+    </td>
   </tr>
 </table>
 <select name= "itemsPerPageOptions" (change)="changePageOptions($event)" >
