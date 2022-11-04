@@ -18,15 +18,15 @@
   <tr>
     <td *ngFor="let header of tableConfig.headers">
       {{header.label}}
-      <button *ngIf="tableConfig.order.orderType === 'desc'" (click)="sort(header.key, 'asc')">
+      <button>
         <mat-icon>arrow_upward</mat-icon>
       </button>
-      <button *ngIf="tableConfig.order.orderType === 'asc'" (click)="sort(header.key, 'desc')">
+      <button>
         <mat-icon>arrow_downward</mat-icon>
       </button>
     </td>
   </tr>
-  <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination : tableConfig.pagination.itemPerPage: pageIndex )">
+  <tr *ngFor="let dataRow of (data | orderBy: 'name': 'desc' | searchFilter : selected : searchTerm | pagination : tableConfig.pagination.itemPerPage: pageIndex )">
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
     </td>

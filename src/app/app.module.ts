@@ -10,6 +10,7 @@ import { MyTableComponent } from './my-table/my-table.component';
 import {FormsModule} from "@angular/forms";
 import { SearchFilterPipe } from './search-filter.pipe';
 import { PaginationPipe } from './pagination.pipe';
+import {OrderByPipe} from "./sorting.pipe";
 
 
 
@@ -21,6 +22,7 @@ import { PaginationPipe } from './pagination.pipe';
     MyTableComponent,
     SearchFilterPipe,
     PaginationPipe,
+    OrderByPipe,
   ],
   imports: [
     BrowserModule,
