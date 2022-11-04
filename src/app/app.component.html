@@ -1,2 +1,2 @@
 <app-my-button [buttonConfig]="config"></app-my-button> <br/> <br/>
-<app-my-table [tableConfig]="table" [data]="data" ></app-my-table>
+<app-my-table [tableConfig]="table" [data]="data" (inputActionToPerform)="actionToPerform($event)"></app-my-table>

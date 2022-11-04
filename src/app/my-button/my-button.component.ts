@@ -13,7 +13,7 @@ export class MyButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.buttonConfig)
+
   }
 
 

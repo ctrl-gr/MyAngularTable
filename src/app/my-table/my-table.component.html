@@ -11,7 +11,7 @@
 <ng-container *ngFor="let action of tableConfig.actions">
   <div *ngIf="action.onTop">
     <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}"
-                   (click)="actionToPerform(action.actionType)">
+                   (click)="actionToOutput(action.actionType)">
     </app-my-button>
   </div>
 </ng-container>
@@ -38,8 +38,7 @@
       <ng-container *ngFor="let action of tableConfig.actions"> <!-- TODO actions under column 'actions'? -->
         <div *ngIf="!action.onTop">
           <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}"
-                         (click)="actionToPerform(action.actionType)"></app-my-button>
-          <!-- Provata soluzione template ma no-->
+                         (click)="actionToOutput(action.actionType)"></app-my-button>
         </div>
       </ng-container>
     </td>

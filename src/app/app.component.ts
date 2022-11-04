@@ -136,9 +136,23 @@ export class AppComponent implements OnInit {
       }
     ]
 
+  }
 
-
-
+  actionToPerform(action: string) {
+    switch (action) {
+      case 'edit': {
+        console.log('element ready to get edited')
+        break;
+      }
+      case 'delete': {
+        console.log('element deleted')
+        break;
+      }
+      case 'new-row': { // this is not taking anything in input
+        console.log('new element')
+        break;
+      }
+    }
   }
 }
 
