@@ -50,10 +50,10 @@ export class MyTableComponent implements OnInit {
   }
 
 
-  @Output() inputActionToPerform = new EventEmitter<string>();
+  @Output() inputActionToPerform = new EventEmitter<object>();
 
-  actionToOutput(value: string) {
-    this.inputActionToPerform.emit(value);
+  actionToOutput(value: string, dataRow: any) {
+    this.inputActionToPerform.emit({value, dataRow});
   }
 
 

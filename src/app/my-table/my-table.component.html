@@ -10,8 +10,7 @@
 <br/> <br/>
 <ng-container *ngFor="let action of tableConfig.actions">
   <div *ngIf="action.onTop">
-    <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}"
-                   (click)="actionToOutput(action.actionType)">
+    <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}"> <!-- TODO perform new item action -->
     </app-my-button>
   </div>
 </ng-container>
@@ -38,7 +37,7 @@
       <ng-container *ngFor="let action of tableConfig.actions"> <!-- TODO actions under column 'actions'? -->
         <div *ngIf="!action.onTop">
           <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}"
-                         (click)="actionToOutput(action.actionType)"></app-my-button>
+                         (click)="actionToOutput(action.actionType, dataRow)"></app-my-button>
         </div>
       </ng-container>
     </td>

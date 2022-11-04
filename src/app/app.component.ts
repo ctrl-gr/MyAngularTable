@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
 import {MyAction, MyOrder, MyPagination, MySearch, MyTableActionEnum, MyTableConfig} from "./my-table/my-table-config";
+import {stringifyTask} from "@angular/compiler-cli/ngcc/src/execution/tasks/utils";
 
 
 @Component({
@@ -138,7 +139,10 @@ export class AppComponent implements OnInit {
 
   }
 
-  actionToPerform(action: string) {
+  actionToPerform(myObject: object) {
+
+    let action = myObject.value.action
+
     switch (action) {
       case 'edit': {
         console.log('element ready to get edited')
