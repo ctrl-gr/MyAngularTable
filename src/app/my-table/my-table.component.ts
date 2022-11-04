@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { MyTableConfig} from "./my-table-config";
+import {MyTableActionEnum, MyTableConfig} from "./my-table-config";
 import * as _ from "lodash";
 
 
@@ -59,12 +59,23 @@ export class MyTableComponent implements OnInit {
     }
   }
 
-  edit(element: any) {
-    // and?
-  }
 
-  delete(element: any) {
-    this.data = this.data.filter((i: any) => i !== element)
-    //this works. But no persistence
+  actionToPerform(actionType: MyTableActionEnum) {
+    switch (actionType) {
+      case MyTableActionEnum.EDIT: {
+        console.log('element ready to  be edited')
+        break;
+      }
+
+      case MyTableActionEnum.DELETE: {
+        console.log('element deleted')
+        break;
+      }
+
+      case MyTableActionEnum.NEW_ROW: {
+        console.log('new element created')
+        break;
+      }
+    }
   }
 }

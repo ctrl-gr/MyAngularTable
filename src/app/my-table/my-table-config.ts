@@ -1,14 +1,14 @@
 export interface MyHeaders {
-  key: string;
-  label: string;
+  key: string
+  label: string
 }
 
 export interface MyTableConfig {
-  headers: MyHeaders[];
-  order: MyOrder;
-  search: MySearch;
-  pagination: MyPagination;
-  actions: MyTableActionEnum[]
+  headers: MyHeaders[]
+  order: MyOrder
+  search: MySearch
+  pagination: MyPagination
+  actions: MyAction[]
 }
 
 export interface MyOrder {
@@ -27,6 +27,16 @@ export interface MyPagination {
 
 export enum MyTableActionEnum {
    EDIT = 'edit',
-   DELETE = 'delete'
+   DELETE = 'delete',
+  NEW_ROW = 'new-row'
+}
+
+export interface MyAction {
+  text: string
+  cssClass: string
+  actionType: MyTableActionEnum
+  icon?: string
+  onTop: boolean
+
 }
 

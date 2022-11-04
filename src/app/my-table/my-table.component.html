@@ -8,6 +8,12 @@
 </select>
 <input class="searchTerm" type="text" name="searchTerm" placeholder="Enter text to search" [(ngModel)]="searchTerm" />
 <br/> <br/>
+<ng-container *ngFor="let action of tableConfig.actions">
+  <div *ngIf="action.onTop">
+    <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}" (click)="actionToPerform(action.actionType)">
+    </app-my-button>
+  </div>
+</ng-container>
 <table>
   <tr>
     <td *ngFor="let header of tableConfig.headers">
@@ -23,10 +29,14 @@
   <tr *ngFor="let dataRow of (data | searchFilter : selected : searchTerm | pagination : tableConfig.pagination.itemPerPage: pageIndex )">
     <td *ngFor="let header of tableConfig.headers">
       {{dataRow[header.key]}}
-      <!-- when I have tableConfig.actions available, display my actions in every row as a button that I will click on to perform the action required -->
     </td>
-    <td *ngFor="let action of tableConfig.actions" >
-      {{action}}
+    <td>
+      <ng-container *ngFor="let action of tableConfig.actions">
+        <div *ngIf="!action.onTop">
+          <app-my-button [buttonConfig]="{text: action.text, customCssClass: action.cssClass, icon: action.icon}" (click)="actionToPerform(action.actionType)"></app-my-button>
+          <!-- mostra qui solo on top= false e event dei click. filtro. Provata soluzione template ma no-->
+        </div>
+      </ng-container>
     </td>
   </tr>
 </table>

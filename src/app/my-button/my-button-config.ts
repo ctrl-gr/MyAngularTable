@@ -1,5 +1,5 @@
 export interface MyButtonConfig {
-  customCssClass: string;
-  text: string;
-  icon: string;
+  customCssClass: string
+  text: string
+  icon?: string
 }

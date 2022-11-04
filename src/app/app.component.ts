@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MyButtonConfig} from "./my-button/my-button-config";
-import {MyOrder, MyPagination, MySearch, MyTableActionEnum, MyTableConfig} from "./my-table/my-table-config";
+import {MyAction, MyOrder, MyPagination, MySearch, MyTableActionEnum, MyTableConfig} from "./my-table/my-table-config";
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   order !: MyOrder;
   search !: MySearch;
   pagination !: MyPagination;
-  actions !: MyTableActionEnum[];
+  actions !: MyAction[];
 
 
   ngOnInit() {
@@ -32,6 +32,34 @@ export class AppComponent implements OnInit {
       defaultColumn: 'name',
       orderType: 'asc'
     }
+
+    this.search = {
+      columns: this.data
+    }
+
+    this.actions = [
+      {
+        text: 'modifica',
+        cssClass: 'btn btn-warning',
+        actionType: MyTableActionEnum.EDIT,
+        icon: 'edit',
+        onTop: false
+      },
+      {
+        text: 'elimina',
+        cssClass: 'btn btn-danger',
+        actionType: MyTableActionEnum.DELETE,
+        icon: 'remove',
+        onTop: false
+      },
+      {
+        text: 'nuovo dato',
+        cssClass: 'btn btn-primary',
+        actionType: MyTableActionEnum.NEW_ROW,
+        icon: 'add',
+        onTop: true
+      }
+    ]
 
     this.table = {
       headers: [
@@ -108,13 +136,9 @@ export class AppComponent implements OnInit {
       }
     ]
 
-    this.search = {
-      columns: this.data
-    }
 
-    this.actions = [
-      MyTableActionEnum.EDIT, MyTableActionEnum.DELETE
-    ]
+
+
   }
 }
 
