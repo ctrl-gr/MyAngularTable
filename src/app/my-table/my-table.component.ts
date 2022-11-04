@@ -16,8 +16,10 @@ export class MyTableComponent implements OnInit {
 
   searchTerm = '';
   selected = '';
+  orderType='';
   pageIndex: number = 0;
   totalPages: number = 0;
+
 
 
   constructor() {
@@ -28,12 +30,6 @@ export class MyTableComponent implements OnInit {
     this.data = _.orderBy(this.data, [this.tableConfig.order.defaultColumn])
     this.totalPages = Math.ceil(this.data.length / this.tableConfig.pagination.itemPerPage)
 
-  }
-
-  sort(key: string, orderType: any) {
-    this.data = _.orderBy(this.data, [key], [orderType])
-    this.tableConfig.order.orderType = orderType
-    console.log('Order changed', this.data)
   }
 
   changePageOptions($event: any) {
@@ -61,21 +57,12 @@ export class MyTableComponent implements OnInit {
 
 
   actionToPerform(actionType: MyTableActionEnum) {
-    switch (actionType) {
-      case MyTableActionEnum.EDIT: {
-        console.log('element ready to  be edited')
-        break;
-      }
+ // output emitter -->
+  }
 
-      case MyTableActionEnum.DELETE: {
-        console.log('element deleted')
-        break;
-      }
-
-      case MyTableActionEnum.NEW_ROW: {
-        console.log('new element created')
-        break;
-      }
-    }
+  setOrder(action: string, key: string) {
+    this.tableConfig.order.orderType = action
+    this.tableConfig.order.defaultColumn = key
+    this.pageIndex = 0;
   }
 }
