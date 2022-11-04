@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { MyTableConfig} from "./my-table-config";
 import * as _ from "lodash";
+import {isObject, keys} from "lodash";
+import {createObject} from "rxjs/internal/util/createObject";
 
 
 @Component({
@@ -53,7 +55,11 @@ export class MyTableComponent implements OnInit {
   @Output() inputActionToPerform = new EventEmitter<object>();
 
   actionToOutput(value: string, dataRow: any) {
-    this.inputActionToPerform.emit({value, dataRow});
+    let objectToEmit: {[key: string]: any} = {
+      value: value,
+      dataRow: dataRow
+    }
+    this.inputActionToPerform.emit(objectToEmit);
   }
 
 

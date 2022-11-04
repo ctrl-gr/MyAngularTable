@@ -141,7 +141,7 @@ export class AppComponent implements OnInit {
 
   actionToPerform(myObject: object) {
 
-    let action = myObject.value.action
+
 
     switch (action) {
       case 'edit': {
